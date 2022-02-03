@@ -1,0 +1,54 @@
+{
+  "name": "teache",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": "16.x"
+  },
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.16.1",
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/user-event": "^13.5.0",
+    "gsap": "^3.9.1",
+    "prettier": "^2.5.1",
+    "query-string": "^7.1.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-gsap": "^3.2.1",
+    "react-responsive": "^9.0.0-beta.5",
+    "react-router-dom": "^6.2.1",
+    "react-router-hash-link": "^2.4.3",
+    "react-scripts": "5.0.0",
+    "react-scroll-motion": "^0.2.1",
+    "react-scrollmagic": "^2.3.0",
+    "save": "^2.4.0",
+    "styled-components": "^5.3.3",
+    "web-vitals": "^2.1.2"
+  },
+  "scripts": {
+    "start": "PORT=3005 react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-optional-chaining": "^7.16.5",
+    "babel-loader": "^8.2.3",
+    "babel-plugin-styled-components": "^2.0.2",
+    "babel-plugin-transform-imports": "^2.0.0",
+    "babel-preset-react-app": "^10.0.1",
+    "gh-pages": "^3.2.3"
+  }
+}

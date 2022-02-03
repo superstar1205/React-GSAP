@@ -1,0 +1,23 @@
+{
+  "plugins": [
+    ["babel-plugin-styled-components",
+      {
+        "minify": true,
+        "transpileTemplateLiterals": true,
+        "fileName": false,
+        "displayName": true,
+        "ssr": false
+      }
+    ],
+    [
+      "babel-plugin-transform-imports",
+      {
+        "ui/icons": {
+          "transform": "ui/icons/${member}",
+          "skipDefaultConversion": true
+        }
+      }
+    ],
+    "@babel/plugin-proposal-optional-chaining"
+  ]
+}
