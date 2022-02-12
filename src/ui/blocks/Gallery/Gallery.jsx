@@ -14,10 +14,10 @@ import {
 import { Container } from "../../base/Container";
 
 import horsePic from "../../../static/pictures/horse.jpeg";
-import volleyballPic from "../../../static/pictures/voleyball.jpeg";
-import fightPic from "../../../static/pictures/fight.jpeg";
-import swordsPic from "../../../static/pictures/swords.jpeg";
-import yogaPic from "../../../static/pictures/yoga.jpeg";
+import fightPic from "../../../static/pictures/fight.png";
+import boatPic from "../../../static/pictures/boat.png";
+import yogaPic from "../../../static/pictures/yoga.png";
+import appPreviewPic from "../../../static/pictures/app_preview.png";
 import { useMediaQuery } from "react-responsive";
 import { theme } from "../../theme/default";
 
@@ -26,10 +26,10 @@ const Gallery = () => {
   const secondRowRef = useRef();
   const thirdRowRef = useRef();
   const horsePicRef = useRef();
-  const volleyballPicRef = useRef();
-  const fightPicRef = useRef();
-  const swordsPicRef = useRef();
   const yogaPicRef = useRef();
+  const fightPicRef = useRef();
+  const boatPicRef = useRef();
+  const appPreviewPicRef = useRef();
 
   const isTablet = useMediaQuery({ query: "(max-width: 1400px)" });
   const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
@@ -38,10 +38,10 @@ const Gallery = () => {
     const images = [];
     const rows = [];
     images.push(horsePicRef.current);
-    images.push(volleyballPicRef.current);
-    images.push(fightPicRef.current);
-    images.push(swordsPicRef.current);
     images.push(yogaPicRef.current);
+    images.push(fightPicRef.current);
+    images.push(boatPicRef.current);
+    images.push(appPreviewPicRef.current);
     rows.push(firstRowRef.current);
     rows.push(secondRowRef.current);
     rows.push(thirdRowRef.current);
@@ -108,12 +108,12 @@ const Gallery = () => {
                 </Text>
               </Content>
             )}
-            <ImageWrapper ref={volleyballPicRef} volleyball>
+            <ImageWrapper ref={yogaPicRef} yoga>
               <ImageStyled
                 high={!isMobile ? 1 : 0}
                 wide={isMobile ? 1 : 0}
-                src={volleyballPic}
-                alt="volleyball"
+                src={yogaPic}
+                alt="yoga"
               />
             </ImageWrapper>
           </Col>
@@ -129,11 +129,11 @@ const Gallery = () => {
               </Content>
             )}
             <ImageWrapper
-              ref={fightPicRef}
+              ref={boatPicRef}
               style={!isMobile ? { marginLeft: 60 } : {}}
-              fight
+              boat
             >
-              <ImageStyled wide={1} src={fightPic} alt="fight" />
+              <ImageStyled wide={1} src={boatPic} alt="boat" />
             </ImageWrapper>
             {!isMobile ? (
               <Content four>
@@ -152,7 +152,7 @@ const Gallery = () => {
           </Col>
           <Col>
             {!isMobile && (
-              <Content third>
+              <Content second>
                 <Text
                   style={isMobile ? { fontSize: theme.fonts["regular"] } : {}}
                 >
@@ -160,8 +160,9 @@ const Gallery = () => {
                 </Text>
               </Content>
             )}
-            <ImageWrapper ref={swordsPicRef} swords>
-              <ImageStyled high={1} src={swordsPic} alt="swords" />
+            <ImageWrapper ref={fightPicRef}
+                          fight>
+              <ImageStyled high={1} src={fightPic} alt="fight" />
             </ImageWrapper>
           </Col>
         </Row>
@@ -174,15 +175,15 @@ const Gallery = () => {
             </Content>
           )}
           <ImageWrapper
-            ref={yogaPicRef}
+            ref={appPreviewPicRef}
             style={{ marginTop: isMobile ? 0 : isTablet ? 55 : 85 }}
-            yoga
+            appPreview
           >
             <ImageStyled
               high={isMobile ? 1 : 0}
               wide={!isMobile ? 1 : 0}
-              src={yogaPic}
-              alt="yoga"
+              src={appPreviewPic}
+              alt="appPreview"
             />
           </ImageWrapper>
         </Row>
