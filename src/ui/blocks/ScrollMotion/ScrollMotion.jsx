@@ -24,6 +24,11 @@ import dateRow from "../../../static/pictures/dateRow.svg";
 import timeRow from "../../../static/pictures/timeRow.svg";
 import fitnessRow from "../../../static/pictures/fitness_row.svg";
 import rockClimbingRow from "../../../static/pictures/rock_climbing_row.svg";
+import { Info } from "../../../ui/blocks/Info";
+import { Download } from "../../../ui/blocks/Download";
+import { Neighborhood } from "../../../ui/blocks/Neighborhood";
+import { Gallery } from "../../../ui/blocks/Gallery";
+import { Footer } from "../../../ui/blocks/Footer";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -32,22 +37,22 @@ const ScrollMotion = ({ setHeadColor, setHeadSolid }) => {
   const firstSection = useRef();
   const secondSection = useRef();
   const thirdSection = useRef();
+  const lastSection = useRef();
 
   useEffect(() => {
     const sections = gsap.utils.toArray(".sticky");
     sections.forEach((section) => {
       ScrollTrigger.create({
-        duration: 2,
+        duration: 1,
         trigger: section,
-        start: "70px top",
+        start: "70px top",        
         pin: true,
         pinSpacing: false,
       });
     });
     ScrollTrigger.create({
       trigger: firstSection.current,
-      start: "top top",
-      end: wrapper.current.clientHeight,
+      start: "top top",          
       toggleClass: "wrap",
       onEnter: () => {
         setHeadColor("white");
@@ -57,10 +62,20 @@ const ScrollMotion = ({ setHeadColor, setHeadSolid }) => {
         setHeadColor("grey");
         setHeadSolid(false);
       },
-    });
+    });    
+
+    ScrollTrigger.create({
+      trigger: secondSection.current,
+      start: "top top",    
+      end: "bottom bottom",
+    });    
+
     ScrollTrigger.create({
       trigger: thirdSection.current,
-      start: "-40px top",
+      start: "top top",
+      end: "bottom bottom",
+      pin: true,
+      pinSpacing: false,
       onEnter: () => {
         setHeadColor("grey");
       },
@@ -74,6 +89,12 @@ const ScrollMotion = ({ setHeadColor, setHeadSolid }) => {
         setHeadColor("white");
         setHeadSolid(false);
       },
+    });
+    ScrollTrigger.create({
+      trigger: lastSection.current,      
+    });    
+    ScrollTrigger.create({
+      snap: 1 / 2.84
     });
   }, []);
 
@@ -152,6 +173,13 @@ const ScrollMotion = ({ setHeadColor, setHeadSolid }) => {
             <img src={thirdPhone} alt="phone" />
           </PhonePicture>
         </PhoneWrapper>
+      </Section>
+      <Section className="sticky" ref={lastSection}>
+        <Info />
+        <Download />
+        <Neighborhood />
+        <Gallery />
+        <Footer />
       </Section>
     </StickyStyled>
   );

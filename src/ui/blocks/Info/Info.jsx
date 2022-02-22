@@ -8,7 +8,7 @@ const InfoMock = [
     id: "check",
     icon: <CheckIcon />,
     title: "Class Variety",
-    text: "Wide range in variety of classes, everything that can  be learned should be taught",
+    text: "Wide range in variety of classes, everything that can be learned should be taught",
   },
   {
     id: "user",
