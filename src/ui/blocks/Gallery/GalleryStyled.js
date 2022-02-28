@@ -68,13 +68,26 @@ export const Title = styled.div`
   line-height: 60px;
   margin-bottom: 40px;
   @media (max-width: 1400px) {
-    font-size: 3vw;
-    line-height: 4vw;
+    font-size: 48px;
+    font-weight: 700;
     margin-bottom: 2.5vw;
   }
+   @media (max-width: 1400px) {
+    font-size: 36px;
+    line-height: 60px;
+    margin-bottom: 2.5vw;
+  }
+  
   @media (max-width: 768px) {
-    font-size: 7.5vw;
-    line-height: 10vw;
+    font-size: 36px;
+    line-height: 60px;
+    margin-bottom: 5vw;
+    text-align: center;
+  }
+  
+  @media (max-width: 640px) {
+    font-size: 24px;
+    line-height: 36px;
     margin-bottom: 5vw;
     text-align: center;
   }
@@ -99,6 +112,9 @@ export const Text = styled.div`
     max-width: 100%;
     padding: 0 6.25vw;
   }
+  @media (max-width: 640px) {
+    font-size: 16px;
+  }
 `;
 
 export const ImageStyled = styled.img`
@@ -111,52 +127,52 @@ export const ImageStyled = styled.img`
   transform: translate(-50%, 100%) scale(1.2);
 `;
 
-const styleImages = (horse, volleyball, fight, swords, yoga) => {
+const styleImages = (horse, yoga, fight, boat, appPreview) => {
   return css`
     width: ${horse
       ? "640px"
-      : volleyball
+      : yoga
       ? "530px"
       : fight
-      ? "470px"
-      : swords
       ? "530px"
-      : yoga
+      : boat
+      ? "468px"
+      : appPreview
       ? "100%"
       : ""};
     height: ${horse
       ? "772px"
-      : volleyball
-      ? "400px"
-      : fight
-      ? "510px"
-      : swords
-      ? "480px"
       : yoga
+      ? "387px"
+      : fight
+      ? "560px"
+      : boat
+      ? "511px"
+      : appPreview
       ? "630px"
       : ""};
     margin: ${({ margin }) => (margin ? margin : "")};
     @media (max-width: 1400px) {
       width: ${horse
         ? "41.2vw"
-        : volleyball
+        : yoga
         ? "43vw"
         : fight
         ? "31.7vw"
-        : swords
+        : boat
         ? "37.4vw"
-        : yoga
+        : appPreview
         ? "100%"
         : ""};
       height: ${horse
         ? "50vw"
-        : volleyball
+        : yoga
         ? "31.9vw"
         : fight
         ? "34.7vw"
-        : swords
+        : boat
         ? "33.9vw"
-        : yoga
+        : appPreview
         ? "44.6vw"
         : ""};
     }
@@ -164,19 +180,16 @@ const styleImages = (horse, volleyball, fight, swords, yoga) => {
       width: 100%;
       height: ${horse
         ? "78.438vw"
-        : volleyball
+        : yoga
         ? "56.250vw"
         : fight
         ? "95.938vw"
-        : swords
+        : boat
         ? "105.938vw"
-        : yoga
+        : appPreview
         ? "83.750vw"
         : ""};
       ${horse && "margin-bottom: 140px"};
-      ${ImageStyled} {
-        ${swords && "left: 30%"};
-      }
     }
   `;
 };
@@ -184,8 +197,8 @@ const styleImages = (horse, volleyball, fight, swords, yoga) => {
 export const ImageWrapper = styled.div`
   overflow: hidden;
   position: relative;
-  ${({ horse, volleyball, fight, swords, yoga }) =>
-    styleImages(horse, volleyball, fight, swords, yoga)};
+  ${({ horse, yoga, boat, fight , appPreview }) =>
+    styleImages(horse, yoga, boat, fight, appPreview)};
   margin: ${({ margin }) => (margin ? margin : "")};
   &:before {
     content: "";
