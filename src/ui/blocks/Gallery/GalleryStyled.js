@@ -2,16 +2,16 @@ import styled, { css } from "styled-components";
 import { themeColor, themeFontSize } from "../../theme";
 
 export const GalleryWrapper = styled.div`
-  margin-bottom: 144px;
+  margin-bottom: 80px;
   margin-top: 300px;
   @media (max-width: 1400px) {
-    padding: 0 4vw 6vw;
-    margin-bottom: 7.2vw;
+    padding: 0 4vw 0vw;
+    margin-bottom: 70px;
     margin-top: 150px;
   }
   @media (max-width: 768px) {
     padding: 0 0 48px;
-    margin-bottom: 0;
+    margin-bottom: 20px;
     margin-top: 100px;
   }
 `;
@@ -63,17 +63,17 @@ export const Content = styled.div`
 export const Title = styled.div`
   font-family: Poppins, sans-serif;
   color: ${themeColor("txt")};
-  font-size: ${themeFontSize("h2")};
+  font-size: 56px;
   font-weight: 600;
   line-height: 60px;
   margin-bottom: 40px;
   @media (max-width: 1400px) {
-    font-size: 48px;
+    font-size: 56px;
     font-weight: 700;
     margin-bottom: 2.5vw;
   }
    @media (max-width: 1400px) {
-    font-size: 36px;
+    font-size: 42px;
     line-height: 60px;
     margin-bottom: 2.5vw;
   }

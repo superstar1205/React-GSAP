@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { themeColor } from "../../theme";
+import { themeColor, themeFontSize } from "../../theme";
 
 const rowsStyles = (fitness, climbing, woman, man, date, time) => {
   return css`
@@ -12,29 +12,29 @@ const rowsStyles = (fitness, climbing, woman, man, date, time) => {
       : man
       ? "-51.5%"
       : date
-      ? "-34.5%"
+      ? "-44.5%"
       : time
       ? "47%"
       : "0"};
     bottom: ${fitness
-      ? `calc(48.5% - ${indent})`
+      ? `calc(46.5% - ${indent})`
       : climbing
-      ? `calc(13.5% - ${indent})`
+      ? `calc(17.5% - ${indent})`
       : woman
-      ? "58.5%"
+      ? "48.5%"
       : man
-      ? "14%"
+      ? "5%"
       : date
-      ? "72%"
+      ? "67%"
       : time
-      ? "17%"
+      ? "12.5%"
       : "0"};
     width: ${fitness || climbing
       ? "15.625vw"
       : woman
-      ? "22.396vw"
+      ? "19.396vw"
       : man
-      ? "19.271vw"
+      ? "18.271vw"
       : date
       ? "13.750vw"
       : time
@@ -126,19 +126,21 @@ export const MainTitle = styled.div`
   line-height: 4.2vw;
   position: absolute;
   width: 100%;
+  display: block;
   bottom: 0;
   left: 50%;
-  transform: translate(-50%, -450%);
+  transform: translate(-50%, -370%);
   @media (max-width: 1400px) {
     font-size: 4.8vw;
     line-height: 5.5vw;
-    transform: translate(-50%, calc(-350% - ${indent}));
+    transform: translate(-50%, calc(-300% - ${indent}));
   }
   @media (max-width: 640px) {
     font-size: 7.5vw;
     line-height: 10vw;
     transform: translate(-50%, -550%);
   }
+  
 `;
 
 export const PhoneWrapper = styled.div`
@@ -149,14 +151,17 @@ export const PhoneWrapper = styled.div`
 
 export const PhonePicture = styled.div`
   border: 5px solid ${themeColor("txt")};
+  box-shadow: 0 0 0 1px ${themeColor("white")};
   border-radius: 20px;
-  width: 17.188vw;
-  height: 37.083vw;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  width: 15.188vw;
+  height: 33.083vw;
   box-sizing: border-box;
   overflow: hidden;
   position: absolute;
   left: 50%;
-  top: ${({ first }) => (first ? "100%" : "50%")};
+  top: ${({ first }) => (first ? "110%" : "55%")};
   transition: all 0.5s;
   background-color: ${themeColor("txt")};
   transform: translate(
@@ -175,7 +180,7 @@ export const PhonePicture = styled.div`
   @media (max-width: 1400px) {
     width: 20.8vw;
     height: 44.8vw;
-    top: ${({ first }) => (first ? "100%" : "50%")};
+    top: ${({ first }) => (first ? "105%" : "55%")};
     transform: translate(
         -50%,
         ${({ first }) => (first ? `calc(-30vw - ${indent})` : "-50%")}
@@ -194,15 +199,16 @@ export const PhonePicture = styled.div`
       transform: translate(-50%, 0%);
     }
   }
+  
 `;
 
 export const PictureRowsWrapper = styled.div`
   position: absolute;
-  top: 50%;
+  top: 57%;
   left: 50%;
   transform: translate(-50%, -50%) scale(1.1);
-  width: 17.188vw;
-  height: 37.083vw;
+  width: 15.188vw;
+  height: 33.083vw;
   z-index: 3;
   opacity: ${({ first }) => (first ? 0 : 1)};
   transition: all 0.5s;
@@ -210,7 +216,7 @@ export const PictureRowsWrapper = styled.div`
     width: 20.8vw;
     height: 44.8vw;
     bottom: auto;
-    top: 50%;
+    top: 55%;
     transform: translate(
       -50%,
       ${({ first }) => (first ? `calc(-50% + ${indent})` : "-50%")}
@@ -275,32 +281,32 @@ export const Column = styled.div`
 `;
 
 export const ColumnTitle = styled.div`
-  font-size: 1.8vw;
-  font-family: Poppins, Montserrat, Roboto, "sans-serif";
-  font-weight: 600;
-  @media (max-width: 1400px) {
-    font-size: 2vw;
-  }
+  font-size: ${themeFontSize("large")};
+  line-height: 33px;
+  font-family: Poppins, sans-serif;
+  font-weight: 700;
+ 
   @media (max-width: 1200px) {
-    font-size: 2.4vw;
+    font-size: ${themeFontSize("regular")};
+    line-height: 24px;
+    margin-top: 11px;
   }
   @media (max-width: 640px) {
     font-size: 5.625vw;
   }
+ 
 `;
 
 export const ColumnText = styled.div`
-  font-size: 1.2vw;
-  font-family: Montserrat, Poppins, Roboto, "sans-serif";
-  font-weight: 500;
-  margin-top: 14px;
-  @media (max-width: 1400px) {
-    font-size: 1.6vw;
-    line-height: 1.5;
-    margin-top: 0.79vw;
-  }
+  font-size: ${themeFontSize("medium")};
+  line-height: 27px;
+  font-family: Montserrat, sans-serif;
+  margin-top: 15px;
+  
   @media (max-width: 1200px) {
-    font-size: 1.8vw;
+    font-size: ${themeFontSize("small")};
+    line-height: 19px;
+    margin-top: 5px;
   }
   @media (max-width: 640px) {
     font-size: 3.75vw;
@@ -310,21 +316,21 @@ export const ColumnText = styled.div`
 
 export const Circle = styled.div`
   background-color: ${themeColor("txt")};
-  width: 40.417vw;
-  height: 40.417vw;
+  width: 39.417vw;
+  height: 39.417vw;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   border-radius: 50%;
   margin: 0 auto;
   position: absolute;
-  bottom: 0;
+  bottom: -12%;
   left: 50%;
   transform: translate(-50%, 20%);
   transform-origin: center;
   transition: all 0.5s;
   @media (max-width: 1400px) {
-    width: 55.5vw;
-    height: 55.5vw;
+    width: 52.5vw;
+    height: 52.5vw;
     bottom: 0;
     transform: translate(-50%, 35%);
   }

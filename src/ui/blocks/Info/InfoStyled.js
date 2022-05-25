@@ -3,7 +3,7 @@ import { themeColor, themeFontSize } from "../../theme";
 
 export const InfoWrapper = styled.div`
   padding: 0 16px;
-  margin-top: 140px;
+  margin-top: 100px;
   @media (max-width: 1200px) {
     padding: 0 30px;
     margin-top: 75px;
