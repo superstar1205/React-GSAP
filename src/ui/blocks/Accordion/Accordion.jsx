@@ -63,7 +63,10 @@ const Accordion = ({ filterBySearch }) => {
     for (let item of baseData) {
       for (let keyWord of searchedItem) {
         if (keyWord.length > 0) {
-          if (item?.title?.toLowerCase()?.includes(keyWord)) {
+          if(keyWord == ''){
+            return;
+          }
+          if (item?.title?.toLowerCase()?.includes(keyWord.toLowerCase()) || item?.text?.toLowerCase()?.includes(keyWord.toLowerCase())) {
             filterData.push(item);
           }
         }
@@ -73,11 +76,7 @@ const Accordion = ({ filterBySearch }) => {
   };
 
   const MemoizationDataForFAQ = () => {
-    if (filterData.length > 0) {
-      return filterData;
-    } else {
-      return activeTab.users ? usersFAQ : instructorsFAQ;
-    }
+    return filterData;
   };
 
   const checkMatch = (keywords, searchData) => {
@@ -93,11 +92,12 @@ const Accordion = ({ filterBySearch }) => {
   };
 
   const resetSearch = () => {
-    setFilterData([]);
+    setFilterData([usersFaq]);
     setInstructorsFAQ(instructorsFaq);
     setUsersFAQ(usersFaq);
   };
 
+  // Check if the SearchData contains at least one of keywords.
   const isKeyWordRequired = () => {
     if (activeTab.users) {
       filterBySearch.length <= 1 && resetSearch();
@@ -108,17 +108,27 @@ const Accordion = ({ filterBySearch }) => {
     }
   };
 
+  
   useEffect(() => {
-    if (isKeyWordRequired()) {
+    console.log("Fileter: ", filterBySearch)
+    if((filterBySearch.length==1 && filterBySearch[0]=='') || filterBySearch.length == 0){
+      if (activeTab.users) {
+        setFilterData(usersFAQ);
+      } else {
+        setFilterData(instructorsFAQ);
+      }
+      return;
+    }
+    // if (isKeyWordRequired()) {
       if (activeTab.users) {
         const mathArray = searchStringInArray(usersFaq, filterBySearch);
-        mathArray.length > 0 && setFilterData(mathArray);
+        setFilterData(mathArray);
       } else {
         const mathArray = searchStringInArray(instructorsFaq, filterBySearch);
-        mathArray.length > 0 && setFilterData(mathArray);
+        setFilterData(mathArray);
       }
-    }
-  }, [filterBySearch]);
+    // }
+  }, [filterBySearch, activeTab]);
 
   useEffect(() => {
     if (faqtab === "instructors") {

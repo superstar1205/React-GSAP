@@ -17,6 +17,7 @@ const Search = ({ onSearchSubmit }) => {
           <Input
             icon={<ZoomIcon />}
             setValue={setQuery}
+            handleSubmitSearch={handleSubmitSearch}
             value={query}
             placeholder="Type your question"
           />

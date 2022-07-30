@@ -48,7 +48,7 @@ export const Title = styled.div`
     margin-bottom: 10px;
   }
   @media (max-width: 640px) {
-    font-size: ${themeFontSize("h5")};
+    font-size: ${themeFontSize("h3")};
     line-height: 36px;
     margin-bottom: 15px;
   }

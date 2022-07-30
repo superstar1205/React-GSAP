@@ -98,7 +98,8 @@ const Gallery = () => {
           </Col>
           <Col>
             {!isMobile && (
-              <Content title>
+              <>
+              <Content title={2}>
                 <Title>
                   Share Your Talents <br />& Become a Teacher
                 </Title>
@@ -107,15 +108,16 @@ const Gallery = () => {
                   neighborhood
                 </Text>
               </Content>
-            )}
             <ImageWrapper ref={yogaPicRef} yoga>
-              <ImageStyled
-                high={!isMobile ? 1 : 0}
-                wide={isMobile ? 1 : 0}
-                src={yogaPic}
-                alt="yoga"
-              />
-            </ImageWrapper>
+            <ImageStyled
+              high={!isMobile ? 1 : 0}
+              wide={isMobile ? 1 : 0}
+              src={yogaPic}
+              alt="yoga"
+            />
+          </ImageWrapper>
+          </>
+          )}
           </Col>
         </Row>
         <Row ref={secondRowRef}>
@@ -128,13 +130,24 @@ const Gallery = () => {
                 </Text>
               </Content>
             )}
-            <ImageWrapper
-              ref={boatPicRef}
-              style={!isMobile ? { marginLeft: 60 } : {}}
-              boat
-            >
-              <ImageStyled wide={1} src={boatPic} alt="boat" />
-            </ImageWrapper>
+            { isMobile 
+              ? <ImageWrapper
+                  ref={yogaPicRef}
+                  style={!isMobile ? { marginLeft: 60 } : {}}
+                  yoga
+                >
+                  <ImageStyled wide={1} src={yogaPic} alt="yoga" />
+                </ImageWrapper>
+              : 
+                <ImageWrapper
+                  ref={boatPicRef}
+                  style={!isMobile ? { marginLeft: 60 } : {}}
+                  boat
+                >
+                  <ImageStyled wide={1} src={boatPic} alt="boat" />
+                </ImageWrapper>
+            
+            }
             {!isMobile ? (
               <Content four>
                 <Text width={365}>

@@ -86,7 +86,7 @@ export const Title = styled.div`
   }
   
   @media (max-width: 640px) {
-    font-size: 24px;
+    font-size: 30px;
     line-height: 36px;
     margin-bottom: 5vw;
     text-align: center;
@@ -189,7 +189,7 @@ const styleImages = (horse, yoga, fight, boat, appPreview) => {
         : appPreview
         ? "83.750vw"
         : ""};
-      ${horse && "margin-bottom: 140px"};
+      ${horse && "margin-bottom: 0px"};
     }
   `;
 };

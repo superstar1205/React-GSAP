@@ -37,7 +37,9 @@ export const HeaderWrapper = styled.div`
     box-shadow: none;
   }
   @media (max-width: 640px) {
-    padding: 0 20px;
+    box-shadow: 0 4px 10px 2px #00000008;
+    background-color: ${({ theme }) => theme.colors["white"] };
+      padding: 0 20px;
   }
 `;
 

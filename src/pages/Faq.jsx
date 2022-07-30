@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Header } from "../ui/blocks/Header";
 import { Footer } from "../ui/blocks/Footer";
 import { Search } from "../ui/blocks/Search";
@@ -8,6 +8,7 @@ import ScrollToTop from "../ui/base/ScrollToTop/ScrollToTop";
 const FaqPage = () => {
   const [searchData, setSearchData] = useState([]);
   const handleSearch = (val) => setSearchData(val.split(" "));
+
   return (
     <ScrollToTop>
       <Header solid />

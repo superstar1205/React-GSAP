@@ -36,7 +36,7 @@ const Info = () => {
       <Container>
         <Row>
           {InfoMock.map((item) => (
-            <Col key={item.id}>
+            <Col key={item.id} className="last">
               <Icon>{item.icon}</Icon>
               <Title>{item.title}</Title>
               <Text>{item.text}</Text>

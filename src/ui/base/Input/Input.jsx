@@ -11,7 +11,6 @@ export const Input = (props) => {
   const {
     center = false,
     value = "",
-    setValue,
     placeholder = "",
     label,
     size = "medium",
@@ -19,11 +18,17 @@ export const Input = (props) => {
     icon,
     number,
     max = "99",
+    handleSubmitSearch,
+    setValue
   } = props;
   const inpRef = useRef(null);
   const [val, setVal] = useState(value);
 
   const onChangeHandler = (el) => {
+    if(el?.keyCode === 13) {
+      handleSubmitSearch();
+      return;
+    }
     setVal(number ? el.target.value.replace(/\D/g, "") : el.target.value);
   };
 
@@ -46,6 +51,7 @@ export const Input = (props) => {
           ref={inpRef}
           value={val}
           placeholder={placeholder}
+          onKeyUp={e=>onChangeHandler(e)}
           onChange={onChangeHandler}
           inpSize={size}
           type={type}

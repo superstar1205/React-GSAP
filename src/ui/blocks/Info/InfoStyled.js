@@ -10,11 +10,11 @@ export const InfoWrapper = styled.div`
   }
    @media (max-width: 992px) {
     padding: 0 30px;
-    margin-top: 20px;
+    margin-top: 75px;
   }
   @media (max-width: 640px) {
     padding: 0 50px;
-    margin-top: 50px;
+    margin-top: 0px;
   }
 `;
 

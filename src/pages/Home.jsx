@@ -1,25 +1,38 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Header } from "../ui/blocks/Header";
+import ScrollMotion from "../ui/blocks/ScrollMotion/ScrollMotion";
+import { ScrollToTop } from "../ui/base/ScrollToTop";
+import { Gallery } from "../ui/blocks/Gallery";
 import { Info } from "../ui/blocks/Info";
 import { Download } from "../ui/blocks/Download";
 import { Neighborhood } from "../ui/blocks/Neighborhood";
-import { Gallery } from "../ui/blocks/Gallery";
 import { Footer } from "../ui/blocks/Footer";
-import ScrollMotion from "../ui/blocks/ScrollMotion/ScrollMotion";
-import { ScrollToTop } from "../ui/base/ScrollToTop";
-
 const HomePage = () => {
-  const [headColor, setHeadColor] = useState();
+  const [headColor, setHeadColor] = useState('white');
   const [headSolid, setHeadSolid] = useState(false);
+  const [bottomShow, setBottomShow] = useState(false);
+
+  useEffect( ()=> {
+    if(window.innerWidth>768){
+      window.scrollTo(0,0);
+    } else {
+      setBottomShow(true);
+    }
+  }, [bottomShow]);
   return (
-    <ScrollToTop>
+      <ScrollToTop>
       <Header color={headColor} solid={headSolid} />
-      <ScrollMotion setHeadColor={setHeadColor} setHeadSolid={setHeadSolid} />
-      <Info />
-      <Download />
-      <Neighborhood />
-      <Gallery />
-      <Footer />
+        <ScrollMotion setHeadColor={setHeadColor} setHeadSolid={setHeadSolid} setBottomShow={setBottomShow}/>
+        { bottomShow 
+          ? <>
+                <Info />
+                <Download />
+                <Neighborhood />
+                <Gallery />
+                <Footer />
+            </>
+          : ""
+        }
     </ScrollToTop>
   );
 };

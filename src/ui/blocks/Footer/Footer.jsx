@@ -52,7 +52,7 @@ const Footer = () => {
             </Links>
           </Col>
           <ColText>
-            <Text>Copyright © 2021 Teache. All rights reserved</Text>
+            <Text>Copyright © 2022 Teache. All rights reserved</Text>
           </ColText>
           <ColBtn>
             <Buttons>

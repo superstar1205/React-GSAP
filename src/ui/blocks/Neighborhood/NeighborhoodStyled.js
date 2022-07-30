@@ -4,11 +4,12 @@ import { InputWrapper } from "../../base/Input/InputStyled";
 import { ButtonStyled } from "../../base/Button/ButtonStyled";
 
 export const NeighborhoodWrapper = styled.div`
-  margin-top: 68px;
+  margin-top: 40px;
   @media (max-width: 1200px) {
-    margin-top: 38px;
+    margin-top: 30px;
     padding: 0 40px;
   }
+
   @media (max-width: 640px) {
     margin-top: 30px;
     padding: 0 20px;
@@ -51,7 +52,7 @@ export const Form = styled.div`
   justify-content: center;
   max-width: 670px;
   width: 100%;
-  margin: 50px auto 0;
+  margin: 30px auto 0;
   ${InputWrapper} {
     margin-right: 20px;
     max-width: 329px;
